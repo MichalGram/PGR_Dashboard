@@ -1,2 +1,2 @@
 # PGR_Dashboard
-Kierownica dla Kubicy z Dawidkiem
+Kierownica dla Kubicy z Dawidkiem i Michasiem!

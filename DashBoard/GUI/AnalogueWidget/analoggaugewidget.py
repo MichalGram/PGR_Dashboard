@@ -159,7 +159,7 @@ class AnalogGaugeWidget(QWidget):
         # initialize Main value text
         self.enable_value_text = True
         self.value_fontname = "Decorative"
-        self.initial_value_fontsize = 40
+        self.initial_value_fontsize = 70
         self.value_fontsize = self.initial_value_fontsize
         self.text_radius_factor = 0.7
 

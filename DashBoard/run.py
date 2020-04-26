@@ -2,14 +2,14 @@ import sys
 
 try:
     import RPi.GPIO as GPIO
-    print('GPIO imported!')
+    running_on_RPi = True
 except:
-    print("GPIO import went wrong...")
+    running_on_RPi = False
 
-try:
+if running_on_RPi:
     from DashBoard.GUI.MainView import MainView
     SHOW_FULLSCREEN = False
-except:
+else:
     from GUI.MainView import MainView
     SHOW_FULLSCREEN = True
 
@@ -58,11 +58,11 @@ class DashBoard(QMainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
 
-    try:
+    if running_on_RPi:
         GPIO.setmode(GPIO.BCM)
-    except:
-        print("Running on windows")
-
+        GPIO.setwarnings(False)
+        GPIO.setup(21, GPIO.OUT)
+        GPIO.output(21, GPIO.HIGH)
 
     if SHOW_FULLSCREEN:
         size = app.desktop().screenGeometry()

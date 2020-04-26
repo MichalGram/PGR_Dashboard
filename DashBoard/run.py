@@ -1,10 +1,22 @@
 import sys
 
-from DashBoard.GUI.MainView import MainView
+try:
+    import RPi.GPIO as GPIO
+    print('GPIO imported!')
+except:
+    print("GPIO import went wrong...")
+
+try:
+    from DashBoard.GUI.MainView import MainView
+    SHOW_FULLSCREEN = False
+except:
+    from GUI.MainView import MainView
+    SHOW_FULLSCREEN = True
+
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-SHOW_FULLSCREEN = False
+
 
 
 class BolideInfo:
@@ -45,6 +57,12 @@ class DashBoard(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+
+    try:
+        GPIO.setmode(GPIO.BCM)
+    except:
+        print("Running on windows")
+
 
     if SHOW_FULLSCREEN:
         size = app.desktop().screenGeometry()

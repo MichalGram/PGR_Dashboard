@@ -1,4 +1,8 @@
-from DashBoard.GUI.styles import *
+try:
+    from DashBoard.GUI.styles import *
+except:
+    from GUI.styles import *
+
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QLCDNumber, QLabel, QProgressBar, QWidget
 

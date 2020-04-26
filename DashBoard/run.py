@@ -7,11 +7,12 @@ except:
     running_on_RPi = False
 
 if running_on_RPi:
-    from DashBoard.GUI.MainView import MainView
-    SHOW_FULLSCREEN = False
-else:
     from GUI.MainView import MainView
     SHOW_FULLSCREEN = True
+
+else:
+    from DashBoard.GUI.MainView import MainView
+    SHOW_FULLSCREEN = False
 
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow
